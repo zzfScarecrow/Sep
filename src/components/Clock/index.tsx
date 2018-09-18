@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import './styles/index.less'
 
 function getTargetRect(target: HTMLElement | Window): ClientRect {
   return target !== window
@@ -27,7 +28,11 @@ export default class Tabs extends React.Component<TabsProps> {
     'load'
   ]
   render() {
-    return <div>Clock</div>
+    return (
+      <div className="test_plug">
+        <div className="clock">clock</div>
+      </div>
+    )
   }
 }
 

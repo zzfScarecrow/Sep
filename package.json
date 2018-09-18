@@ -7,6 +7,7 @@
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "lodash": "^4.17.10",
+    "rollup-plugin-less": "^0.1.4",
     "the-answer": "^1.0.0"
   },
   "devDependencies": {

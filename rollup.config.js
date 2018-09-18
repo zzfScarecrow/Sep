@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import ts from 'rollup-plugin-typescript2'
 import typescript from 'typescript'
 import glob from 'glob'
-import babel from 'rollup-plugin-babel'
+import less from 'rollup-plugin-less'
 
 let options = []
 
@@ -15,7 +15,7 @@ glob.sync('src/components/**/index.tsx').forEach(val => {
   options.push({
     input: val,
     output: { file: `dist/${componentName}/index.es.js`, format: 'cjs' },
-    plugins: [resolve(), ts({ typescript })],
+    plugins: [resolve(), ts({ typescript }), less()],
     external: ['lodash', 'react']
   })
 })
