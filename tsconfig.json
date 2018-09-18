@@ -1,3 +1,13 @@
 {
-  "importHelpers": true
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "target": "es6",
+    "lib": ["dom", "es7"]
+  }
+  // "include": ["./src/**"]
 }
