@@ -23,6 +23,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-serve": "^0.4.2",
     "rollup-plugin-typescript2": "^0.17.0",
+    "shelljs": "^0.8.2",
     "tslib": "^1.9.3",
     "typescript": "^3.0.3"
   },

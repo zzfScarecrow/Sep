@@ -5,11 +5,15 @@ import glob from 'glob'
 
 let options = []
 
-glob.sync('dist/**/index.es.js').forEach(val => {
-  const componentName = val.split('/')[1]
+glob.sync('dist/**/*.es.js').forEach(path => {
+  /* path example: dist/components/Clock/tt/tt.es.js */
+  // .match(/[a-zA-Z0-9_]+.es.js/)
+  const fileName = path.match(/[a-zA-Z0-9_]+.es.js/)[0]
+  const outputPath = path.replace(fileName, fileName.replace('.es', ''))
+  console.log('outputPath: ', outputPath)
   options.push({
-    input: val,
-    output: { file: `dist/${componentName}/index.js`, format: 'cjs' },
+    input: path,
+    output: { file: outputPath, format: 'cjs' },
     plugins: [resolve(), babel({ runtimeHelpers: true })],
     external: ['lodash', 'react']
   })
