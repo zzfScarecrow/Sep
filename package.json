@@ -17,6 +17,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "fangtian": "^1.0.0",
     "glob": "^7.1.3",
     "less": "^3.8.1",
     "rollup": "^0.66.0",
@@ -33,8 +34,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "fangtian -e && rollup -c && rollup -c rollup.config.es5.js && rollup -c rollup.config.style.js && fangtian -t",
-    "dev": "rollup -cw",
-    "bb": "babel src/components/Clock/style/index.tsx"
+    "dev": "rollup -cw"
   },
   "author": "",
   "license": "ISC"
