@@ -1,47 +1,32 @@
 // rollup.config.js
+/**
+ * @file rollup.config.js
+ * @description Transfer ts into es6
+ */
+
 import resolve from 'rollup-plugin-node-resolve'
 import ts from 'rollup-plugin-typescript2'
 import typescript from 'typescript'
 import glob from 'glob'
-import less from 'rollup-plugin-less'
-import shelljs from 'shelljs'
 
 let options = []
-
-// const plugins = [resolve(), ts({ typescript })]
-// let plugins = [resolve(), ts({ typescript }), babel({ runtimeHelpers: true })]
 
 glob.sync('src/components/**/*.tsx').forEach(path => {
   /* path example: src/components/Clock/index.tsx */
   /* convert input path into output path  */
-  const outputPath = path.replace(/^src/, 'dist').replace(/.tsx$/, '.es.js')
-  let cssOutputDir = `${path
+  const reg = new RegExp(/style/)
+  const isStyle = reg.test(path.split('/')[3]) || reg.test(path.split('/')[2])
+  if (isStyle) return
+  const outputPath = path
     .replace(/^src/, 'dist')
-    .split('/')
-    .splice(0, 3)
-    .join('/')}/styles`
-  let cssOutputPath = `${cssOutputDir}/index.css`
-
-  // less will throw an exception:
-  // no such file or directory, open 'dist/components/Clock/styles/index.css'
-  // if we don't make dir manually
-  if (/main.tsx/.test(cssOutputDir)) {
-    cssOutputPath = 'rollup.build.css'
-  } else {
-    shelljs.mkdir('-p', cssOutputDir)
-  }
+    .replace(/components/, 'es')
+    .replace(/.tsx$/, '.js')
 
   options.push({
     input: path,
-    output: { file: outputPath, format: 'cjs' },
+    output: { file: outputPath, format: 'esm' },
     treeshake: true,
-    plugins: [
-      resolve(),
-      ts({ typescript }),
-      less({
-        output: cssOutputPath
-      })
-    ],
+    plugins: [resolve(), ts({ typescript })],
     external: ['lodash', 'react']
   })
 })
