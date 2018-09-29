@@ -8,8 +8,19 @@ import resolve from 'rollup-plugin-node-resolve'
 import ts from 'rollup-plugin-typescript2'
 import typescript from 'typescript'
 import glob from 'glob'
+import tsImportPluginFactory from 'ts-import-plugin'
 
 let options = []
+
+const transformer = () => ({
+  before: [
+    tsImportPluginFactory({
+      libraryDirectory: 'lib',
+      libraryName: 'antd',
+      style: 'css'
+    })
+  ]
+})
 
 glob.sync('src/components/**/*.tsx').forEach(path => {
   /* path example: src/components/Clock/index.tsx */
@@ -26,8 +37,8 @@ glob.sync('src/components/**/*.tsx').forEach(path => {
     input: path,
     output: { file: outputPath, format: 'esm' },
     treeshake: true,
-    plugins: [resolve(), ts({ typescript })],
-    external: ['lodash', 'react']
+    plugins: [resolve(), ts({ typescript, transformers: [transformer] })],
+    external: id => /react|antd/.test(id)
   })
 })
 

@@ -6,10 +6,10 @@
   "dependencies": {
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
+    "antd": "^3.9.3",
     "lodash": "^4.17.10",
     "react": "^16.5.2",
-    "rollup-plugin-less": "^0.1.4",
-    "the-answer": "^1.0.0"
+    "rollup-plugin-less": "^0.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -29,6 +29,7 @@
     "rollup-plugin-serve": "^0.4.2",
     "rollup-plugin-typescript2": "^0.17.0",
     "shelljs": "^0.8.2",
+    "ts-import-plugin": "^1.5.5",
     "tslib": "^1.9.3",
     "typescript": "^3.0.3"
   },

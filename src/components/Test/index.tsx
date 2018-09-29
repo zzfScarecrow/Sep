@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { Button } from 'antd'
 
 function getTargetRect(target: HTMLElement | Window): ClientRect {
   return target !== window
@@ -27,7 +28,11 @@ export default class Tabs extends React.Component<TabsProps> {
     'load'
   ]
   render() {
-    return <div>ScareCrow</div>
+    return (
+      <div>
+        <Button>Btn</Button>
+      </div>
+    )
   }
 }
 
