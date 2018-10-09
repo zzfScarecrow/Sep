@@ -38,7 +38,7 @@ glob.sync('src/components/**/*.tsx').forEach(path => {
     output: { file: outputPath, format: 'esm' },
     treeshake: true,
     plugins: [resolve(), ts({ typescript, transformers: [transformer] })],
-    external: id => /react|antd/.test(id)
+    external: id => /react|antd|classnames|prop-types/.test(id)
   })
 })
 

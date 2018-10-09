@@ -20,7 +20,7 @@ glob.sync('dist/es/**/*.js').forEach(path => {
     input: path,
     output: { file: outputPath, format: 'cjs' },
     plugins: [resolve(), babel({ runtimeHelpers: true })],
-    external: id => /react|antd/.test(id)
+    external: id => /react|antd|classnames|prop-types/.test(id)
   })
 })
 
