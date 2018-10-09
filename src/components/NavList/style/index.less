@@ -1,0 +1,25 @@
+@import '../../style/themes/default.less';
+
+@navlist-prefix-cls: ~'@{sep-prefix}-navlist';
+
+.@{navlist-prefix-cls} {
+  height: @navlist-height;
+  margin: @navlist-margin;
+  border-bottom: @border-width-base @border-style-base @border-color-base;
+  &-selection {
+    height: @navlist-height;
+    text-align: center;
+    line-height: @navlist-height;
+    float: left;
+    font-size: @font-size-base;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: @text-color-grey;
+    margin-right: @navlist-margin-right;
+    &__active {
+      border-bottom: 2px @border-style-base @primary-color;
+      color: @primary-color;
+      font-weight: @navlist-font-weight;
+    }
+  }
+}
