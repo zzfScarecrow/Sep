@@ -1,16 +1,12 @@
 # Sep
 
-Rollup+React+Antd 组件库（私用）
+Rollup+React+Antd library（private）
 
-# Issue
+# Use of Sep
 
-1、无法从 ts 转换成 js 后立即经过 babel 转换成 es5，可再写一个工具来转换
-2、调研 rollup 多入口的问题
+1. npm i
+2. npm run build
 
-fangtian(方天画戟)
-1、给 dist/components/{COMPONENTNAME}/styles/css.js 添加内容：
+if you are developing a components, or you want to take a glance of components, run `npm run dev`, before that, you have to change the file name of `.babelrc` in to anything but `.babelrc`.
 
-```javascript
-import './index.css'
-import '../../styles/index.css'
-```
+After that, please remember change this file name into `.babelrc`. Or our build command won't work well.
