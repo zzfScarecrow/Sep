@@ -14,4 +14,4 @@ if (
 }
 /* Warning import the hole package at one time end */
 
-export { default as NavList } from './NavList'
+export { default as NavList } from './nav-list'
