@@ -14,6 +14,4 @@ if (
 }
 /* Warning import the hole package at one time end */
 
-export { default as Tabs } from './Tabs'
-
-export { default as Tabs2 } from './Clock'
+export { default as NavList } from './NavList'
