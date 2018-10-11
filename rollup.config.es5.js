@@ -9,13 +9,13 @@ import glob from 'glob'
 
 let options = []
 
-glob.sync('dist/es/**/*.js').forEach(path => {
-  /* path example: dist/components/Clock/tt/tt.es.js */
+glob.sync('sep/es/**/*.js').forEach(path => {
+  /* path example: sep/components/Clock/tt/tt.es.js */
   const reg = new RegExp(/style/)
   const isStyle = reg.test(path.split('/')[3]) || reg.test(path.split('/')[2])
   if (isStyle) return
   const fileName = path.match(/[a-zA-Z0-9_]+.js/)[0]
-  const outputPath = path.replace('dist/es', 'dist/lib')
+  const outputPath = path.replace('sep/es', 'sep/lib')
   options.push({
     input: path,
     output: { file: outputPath, format: 'cjs' },

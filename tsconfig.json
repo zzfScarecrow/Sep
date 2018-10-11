@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./sep/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "es2015",

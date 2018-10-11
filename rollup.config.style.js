@@ -16,11 +16,11 @@ glob.sync('src/components/**/*.tsx').forEach(path => {
   const isStyle = reg.test(path.split('/')[3]) || reg.test(path.split('/')[2])
   if (!isStyle) return
   const esOutputPath = path
-    .replace(/^src/, 'dist')
+    .replace(/^src/, 'sep')
     .replace(/components/, 'es')
     .replace(/tsx$/, 'js')
   const libOutputPath = path
-    .replace(/^src/, 'dist')
+    .replace(/^src/, 'sep')
     .replace(/components/, 'lib')
     .replace(/tsx$/, 'js')
   options.push({
