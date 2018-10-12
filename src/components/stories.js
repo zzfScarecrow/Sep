@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import NavList from '../../sep/es/nav-list'
-import '../../sep/es/nav-list/style/index.css'
+import NavList from './nav-list'
+import './nav-list/style'
 
 const dataSource = [
   {
