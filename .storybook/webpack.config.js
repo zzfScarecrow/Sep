@@ -1,4 +1,5 @@
 const tsImportPluginFactory = require('ts-import-plugin')
+const path = require('path')
 module.exports = (baseConfig, env, config) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -30,5 +31,6 @@ module.exports = (baseConfig, env, config) => {
     ]
   })
   config.resolve.extensions.push('.ts', '.tsx')
+  config.resolve.alias['@'] = path.resolve(__dirname, '..', 'src/components')
   return config
 }

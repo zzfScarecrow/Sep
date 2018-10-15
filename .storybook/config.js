@@ -1,7 +1,6 @@
 import { configure } from '@storybook/react'
-
+const r = require
 function loadStories() {
-  require('../src/components/stories.js')
+  r('../src/components/nav-list/.stories.js')
 }
-
 configure(loadStories, module)

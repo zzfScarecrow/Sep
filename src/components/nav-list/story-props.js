@@ -1,8 +1,3 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import NavList from './nav-list'
-import './nav-list/style'
-
 const dataSource = [
   {
     title: '全部',
@@ -33,12 +28,10 @@ const dataSource = [
 
 const navListProps = {
   dataSource,
-  defaultKey: 'total'
+  defaultKey: 'total',
+  onChange: data => {
+    console.log(`Data: ${data.value}`)
+  }
 }
 
-const onChange = data => {
-  console.log(`Data: ${data.value}`)
-}
-storiesOf('NavList', module).add('Simple', () => (
-  <NavList {...navListProps} onChange={onChange} />
-))
+export default navListProps
