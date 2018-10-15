@@ -4,6 +4,8 @@ Rollup+React+Antd components library（private）.
 
 # Use of Sep
 
+### Sep's source code
+
 First, absolutely run `npm i`.
 
 And then, if you want to get in develop mode, simply run `npm run dev`, this will start storybook to let you overview components. if things goes well, you command line shows information below:
@@ -29,6 +31,40 @@ if you are developing a new component, modify src/components/stories.js and add 
 For more information about storybook, please jump to [storybook](https://storybook.js.org/basics/introduction/).
 
 After a component completed, run `npm run build` and this will create a `sep` folder in root of Sep. The `sep` is what we are going to publish to npm, and what we are going to import to our project.
+
+### Sep's dist code
+
+1. npm i -S sep
+2. npm i -D babel-plugin-import
+3. .babelrc or babel-loader option
+
+```javascript
+// if you are using antd as well, option is an array
+"plugins": [
+    [
+      "import",
+      [
+        { "libraryName": "antd", "style": true },
+        {
+          "libraryName": "sep",
+          "libraryDirectory": "es",
+          "style": true
+        }
+      ]
+    ]
+  ]
+// if you only use sep, option is an object
+"plugins": [
+    [
+      "import",
+        {
+          "libraryName": "sep",
+          "libraryDirectory": "es",
+          "style": true
+        }
+    ]
+  ]
+```
 
 ## How to develop
 
